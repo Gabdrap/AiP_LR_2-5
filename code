@@ -1,12 +1,22 @@
 #include <iostream>
+#include <Windows.h>
 
 using namespace std;
 
-char under(char a[]{}; int* ptr{ a }; sizeof(a)) {
-
+void under(char* ptr, int size) {
+    for (int i = 0; i < size; i++) {
+        if (ptr[i] == ' ') {
+            ptr[i] = '_';
+        }
+    }
 }
 
 int main() {
-    char a[]{ "C++ is one of the world's popular programming language" };
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    char a[]{ "C++ is one of the world's popular programming languages" };
+    int size = sizeof(a) - 1;
+    under(a, size);
+    cout << a << endl;
     return 0;
 }
