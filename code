@@ -2,6 +2,11 @@
 
 using namespace std;
 
+char under(char a[]{}; int* ptr{ a }; sizeof(a)) {
+
+}
+
 int main() {
-  
+    char a[]{ "C++ is one of the world's popular programming language" };
+    return 0;
 }
