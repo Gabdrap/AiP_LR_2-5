@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <ctime>
 
-
 using namespace std;
 
 void under(char* ptr, int size) {
@@ -14,35 +13,72 @@ void under(char* ptr, int size) {
     }
 }
 
+void swapHalves(char* arr, int size) {
+    for (int i = 0; i < size / 2; i++) {
+        char temp = arr[i];
+        arr[i] = arr[i + size / 2];
+        arr[i + size / 2] = temp;
+    }
+}
+
+void swapPairs(char* arr, int size) {
+    for (int i = 0; i < size - 1; i += 2) {
+        char temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+    }
+}
+
+void reverseArray(char* arr, int size) {
+    for (int i = 0; i < size / 2; i++) {
+        char temp = arr[i];
+        arr[i] = arr[size - 1 - i];
+        arr[size - 1 - i] = temp;
+    }
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    char a[]{ "C++ is one of the world's popular programming languages" };
-    int size = sizeof(a) - 1;
-    under(a, size);
-    cout << a << endl;
-
-    char b[]{};
-    char arr[]{ "Четное" };
-    int size1 = sizeof(arr) - 1;
-    int j = size1 - 1;
-
-    int d = size1 / 2;
-    for (int i = 0; i < d; i++) {
-        b = b + arr[i];
-        }
-
-    cout << b << endl;
-
-    for (int i = 0; i < (size1 / 2); i++)
-    {
-        char f = arr[j];
-        arr[j] = arr[i];
-        arr[i] = f;
-        j--;
+    int choise;
+    cout << "Выберите задание: ";
+    cin >> choise;
+    if (choise == 1) {
+        char a[]{ "C++ is one of the world's popular programming languages" };
+        int size = sizeof(a) - 1;
+        under(a, size);
+        cout << a << endl;
     }
-    
-    cout << arr << endl;
+    if (choise == 2) {
+        char arr[]{ "Четное" };
+        int size = sizeof(arr) - 1;
+
+        cout << "Исходный массив: " << arr << endl;
+
+        swapHalves(arr, size);
+
+        cout << "Массив после замены половин: " << arr << endl;
+    }
+    if (choise == 3) {
+        char arr[]{ "Четное" };
+        int size = sizeof(arr) - 1;
+
+        cout << "Исходный массив: " << arr << endl;
+
+        swapPairs(arr, size);
+
+        cout << "Массив после замены пар: " << arr << endl;
+    }
+    if (choise == 4) {
+        char arr[]{ "Четное" };
+        int size = sizeof(arr) - 1;
+
+        cout << "Исходный массив: " << arr << endl;
+
+        reverseArray(arr, size);
+
+        cout << "Массив после замены: " << arr << endl;
+    }
 
     return 0;
 }
