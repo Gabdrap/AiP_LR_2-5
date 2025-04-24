@@ -7,33 +7,33 @@ using namespace std;
 
 void under(char* ptr, int size) {
     for (int i = 0; i < size; i++) {
-        if (ptr[i] == ' ') {
-            ptr[i] = '_';
+        if (*(ptr + i) == ' ') {
+            *(ptr + i) = '_';
         }
     }
 }
 
-void swapHalves(char* arr, int size) {
+void swapHalves(char* ptr, int size) {
     for (int i = 0; i < size / 2; i++) {
-        char temp = arr[i];
-        arr[i] = arr[i + size / 2];
-        arr[i + size / 2] = temp;
+        char temp = *(ptr + i);
+        *(ptr + i) = *(ptr + i + size / 2);
+        *(ptr + i + size / 2) = temp;
     }
 }
 
-void swapPairs(char* arr, int size) {
+void swapPairs(char* ptr, int size) {
     for (int i = 0; i < size - 1; i += 2) {
-        char temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+        char temp = *(ptr + i);
+        *(ptr + i) = *(ptr + i + 1);
+        *(ptr + i + 1) = temp;
     }
 }
 
-void reverseArray(char* arr, int size) {
+void reverse(char* ptr, int size) {
     for (int i = 0; i < size / 2; i++) {
-        char temp = arr[i];
-        arr[i] = arr[size - 1 - i];
-        arr[size - 1 - i] = temp;
+        char temp = *(ptr + i);
+        *(ptr + i) = *(ptr + size - 1 - i);
+        *(ptr + size - 1 - i) = temp;
     }
 }
 
@@ -75,7 +75,7 @@ int main() {
 
         cout << "Исходный массив: " << arr << endl;
 
-        reverseArray(arr, size);
+        reverse(arr, size);
 
         cout << "Массив после замены: " << arr << endl;
     }
